@@ -1,0 +1,21 @@
+public class CalculaPI {
+
+    public static void main(String[] args) {
+        int precisao = Integer.parseInt(args[0]);
+
+        double meuPi = 0;
+        double sinal = 1;
+
+        for (int denominador = 1; denominador < precisao; denominador += 2) {
+            meuPi += ((1.0/denominador) * sinal);
+            sinal *= -1;
+        }
+
+        meuPi *= 4;
+
+        double erro = Math.abs(1 - meuPi/Math.PI) * 100;
+
+        System.out.printf("> O valor de pi é: %f\n", meuPi);
+        System.out.printf("> Erro: %f%%\n", erro);
+    }
+}
